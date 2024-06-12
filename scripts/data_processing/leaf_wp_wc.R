@@ -1,6 +1,7 @@
 #### DATA PROCESSING ###########################################################
 
-## Pablo Sanchez Martinez
+## Author: Pablo Sanchez Martinez
+## Modified by: Lion R. Martius
 ## 09/2023
 
 source("initialization.R")
@@ -12,7 +13,7 @@ source("initialization.R")
 
 ## WP data
 
-wp_05_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2023.xlsx",
+wp_05_2023.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2023.xlsx",
                       sheet = 1) %>%
   mutate(plot = ifelse(plot == "A", "Control", "TFE"),
          id_radar_replique = paste0(plot, "_", ID, "_", radar_replique),
@@ -41,7 +42,7 @@ wp_05_2023.data <-  wp_05_2023.data  %>%
 
 ## WC data
 
-wc_05_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2023.xlsx",
+wc_05_2023.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2023.xlsx",
                           sheet = 2) %>%
       mutate(plot = ifelse(plot == "A", "Control", "TFE"),
              id_radar_replique = paste0(plot, "_", ID, "_", radar_replique)) %>%
@@ -73,10 +74,10 @@ write_csv(radar_wp_wc_05_2023.data, file = "data_processed/leaf_wp_wc/radar_wp_w
 
 ### 07/2023 radar campaign ####
 
-wp_07_2023 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_07_2023.xlsx",
+wp_07_2023 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_07_2023.xlsx",
                                  sheet = 1)
 
-wc_07_2023 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_07_2023.xlsx",
+wc_07_2023 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_07_2023.xlsx",
                                  sheet = 2)
 
 ## data needs to be changed from wide to long format 
@@ -185,7 +186,7 @@ write_csv(radar_wp_wc_07_2023.data, file = "data_processed/leaf_wp_wc/radar_wp_w
 
 ## WP data 
 
-wp_10_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_10_2023.xlsx",
+wp_10_2023.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_10_2023.xlsx",
                               sheet = 1) %>%
   mutate(id_radar_replique = paste0(plot, "_", ID, "_", radar_replique),
          id = paste0(plot, "_", ID),
@@ -202,7 +203,7 @@ wp_10_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinbu
 
 ## WC data
 
-wc_10_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_10_2023.xlsx",
+wc_10_2023.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_10_2023.xlsx",
                               sheet = 2) %>%
   mutate(id_radar_replique = paste0(plot, "_", ID, "_", radar_replique)) %>%
   select(-ID, -radar_replique, -plot, -date, -notes)
@@ -227,10 +228,10 @@ write_csv(radar_wp_wc_10_2023.data, file = "data_processed/leaf_wp_wc/radar_wp_w
 
 ### 12/2023 radar campaign ####
 
-wp_12_2023 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
+wp_12_2023 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
                                  sheet = 1)
 
-wc_12_2023 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
+wc_12_2023 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
                                  sheet = 2)
 
 
@@ -279,7 +280,7 @@ wp_12_2023.data <- bind_rows(wp_12_2023_a, wp_12_2023_b, wp_12_2023_c) %>%
 
 ## WC data
 
-wc_12_2023.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
+wc_12_2023.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
                               sheet = 2) %>%
   mutate(plot = ifelse(plot == "A", "Control", "TFE"),
          id_radar_replique = paste0(plot, "_", ID, "_", radar_replique)) %>%
@@ -291,7 +292,7 @@ radar_wp_wc_12_2023.data <- merge(wp_12_2023.data, wc_12_2023.data,
                                   by = "id_radar_replique", 
                                   all = T, 
                                   suffixes = c("wp", "wc")) %>%
-  mutate(campaign = "10-2023")
+  mutate(campaign = "12-2023")
 
 
 # bring all names to lower case to avoid double identification of variables
@@ -319,10 +320,10 @@ write_csv(radar_wp_wc_12_2023.data, file = "data_processed/leaf_wp_wc/radar_wp_w
 
 ### 02/2024 radar campaign ####
 
-wp_02_2024 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_02_2024.xlsx",
+wp_02_2024 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_02_2024.xlsx",
                                  sheet = 1)
 
-wc_12_2023 <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_02_2024.xlsx",
+wc_02_2024 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_02_2024.xlsx",
                                  sheet = 2)
 
 ## data needs to be changed from wide to long format 
@@ -370,7 +371,7 @@ wp_02_2024.data <- bind_rows(wp_02_2024_a, wp_02_2024_b, wp_02_2024_c) %>%
 
 ## WC data
 
-wc_02_2024.data <- read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_12_2023.xlsx",
+wc_02_2024.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_02_2024.xlsx",
                               sheet = 2) %>%
   mutate(plot = ifelse(plot == "A", "Control", "TFE"),
          id_radar_replique = paste0(plot, "_", ID, "_", radar_replique)) %>%
@@ -382,7 +383,7 @@ radar_wp_wc_02_2024.data <- merge(wp_02_2024.data, wc_02_2024.data,
                                   by = "id_radar_replique", 
                                   all = T, 
                                   suffixes = c("wp", "wc")) %>%
-  mutate(campaign = "10-2023")
+  mutate(campaign = "02-2024")
 
 
 # bring all names to lower case to avoid double identification of variables
@@ -400,12 +401,105 @@ radar_wp_wc_02_2024.data <- radar_wp_wc_02_2024.data %>%
 radar_wp_wc_02_2024.data <- radar_wp_wc_02_2024.data %>%
   filter(radar == TRUE) %>%
   select(-radar) %>%
-  mutate(campaign = "12-2023")
+  mutate(campaign = "02-2024")
 
 
 ## Save campaign data
 
 write_csv(radar_wp_wc_02_2024.data, file = "data_processed/leaf_wp_wc/radar_wp_wc_02_2024.csv")
+
+
+### 05/2024 radar campaign ####
+
+wp_05_2024 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2024.xlsx",
+                                 sheet = 1)
+
+wc_05_2024 <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2024.xlsx",
+                                 sheet = 2)
+
+## data needs to be changed from wide to long format 
+
+## WP
+
+wp_05_2024_a <- wp_05_2024 %>%
+  select(ID, radar, plot, date_pd, Hour_WP_pd, date_md, Hour_WP_md, collector, all_of(names(wp_05_2024)[str_detect(names(wp_05_2024), "_1")])) %>%
+  mutate(radar_replique = "a",
+         plot = ifelse(plot == "A", "Control", "TFE"),
+         Hour_WP_md = format(as.POSIXct(Hour_WP_md), format = "%H:%M"),
+         Hour_WP_pd = format(as.POSIXct(Hour_WP_pd), format = "%H:%M"),
+         date = ymd(date_md)
+  ) %>%
+  select(ID, radar_replique, everything())
+names(wp_05_2024_a) <- str_remove_all(names(wp_05_2024_a), "_1")
+
+wp_05_2024_b <- wp_05_2024 %>%
+  select(ID, radar, plot, date_pd, Hour_WP_pd, date_md, Hour_WP_md, collector, all_of(names(wp_05_2024)[str_detect(names(wp_05_2024), "_2")])) %>%
+  mutate(radar_replique = "b",
+         plot = ifelse(plot == "A", "Control", "TFE"),
+         Hour_WP_md = format(as.POSIXct(Hour_WP_md), format = "%H:%M"),
+         Hour_WP_pd = format(as.POSIXct(Hour_WP_pd), format = "%H:%M"),
+         date = ymd(date_md)) %>%
+  select(ID, radar_replique, everything())
+names(wp_05_2024_b) <- str_remove_all(names(wp_05_2024_b), "_2")
+
+wp_05_2024_c <- wp_05_2024 %>%
+  select(ID, radar, plot, date_pd, Hour_WP_pd, date_md, Hour_WP_md, collector, all_of(names(wp_05_2024)[str_detect(names(wp_05_2024), "_3")])) %>%
+  mutate(radar_replique = "c",
+         plot = ifelse(plot == "A", "Control", "TFE"),
+         Hour_WP_md = format(as.POSIXct(Hour_WP_md), format = "%H:%M"),
+         Hour_WP_pd = format(as.POSIXct(Hour_WP_pd), format = "%H:%M"),
+         date = ymd(date_md)) %>%
+  select(ID, radar_replique, everything())
+names(wp_05_2024_c) <- str_remove_all(names(wp_05_2024_c), "_3")
+
+wp_05_2024.data <- bind_rows(wp_05_2024_a, wp_05_2024_b, wp_05_2024_c) %>%
+  mutate(id_radar_replique = paste0(plot, "_", ID, "_", radar_replique),
+         id = paste0(plot, "_", ID)) %>%
+  select(id_radar_replique, id, radar, radar_replique, date, plot, 
+         WP_md, WP_pd,
+         Hour_WP_pd, Hour_WP_md
+  )
+
+## WC data
+
+wc_05_2024.data <- read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_physiology/caxuana_leaf_water_content_water_potential/caxiuana_water_potentials_vwc_05_2024.xlsx",
+                              sheet = 2) %>%
+  mutate(plot = ifelse(plot == "A", "Control", "TFE"),
+         id_radar_replique = paste0(plot, "_", ID, "_", radar_replique)) %>%
+  select(-ID, -radar_replique, -plot, -date, -notes)
+
+## Merge WP and WC
+
+radar_wp_wc_05_2024.data <- merge(wp_05_2024.data, wc_05_2024.data, 
+                                  by = "id_radar_replique", 
+                                  all = T, 
+                                  suffixes = c("wp", "wc")) %>%
+  mutate(campaign = "05-2024")
+
+
+# bring all names to lower case to avoid double identification of variables
+names(radar_wp_wc_05_2024.data) <- tolower(names(radar_wp_wc_05_2024.data))
+
+
+# negative values
+
+radar_wp_wc_05_2024.data <- radar_wp_wc_05_2024.data %>%
+  filter(!is.na(plot)) %>%
+  # make sure there are no positive values for wp
+  mutate(wp_md = abs(wp_md)*-1,
+         wp_pd = abs(wp_pd)*-1)
+
+radar_wp_wc_05_2024.data <- radar_wp_wc_05_2024.data %>%
+  filter(radar == TRUE) %>%
+  select(-radar) %>%
+  mutate(campaign = "05-2024")
+
+
+## Save campaign data
+
+write_csv(radar_wp_wc_05_2024.data, file = "data_processed/leaf_wp_wc/radar_wp_wc_05_2024.csv")
+
+
 
 
 ### Bind rows for different campaings ####
@@ -415,23 +509,24 @@ radar_wp_wc_07_2023.data <- read_csv( "data_processed/leaf_wp_wc/radar_wp_wc_07_
 radar_wp_wc_10_2023.data <- read_csv( "data_processed/leaf_wp_wc/radar_wp_wc_10_2023.csv")
 radar_wp_wc_12_2023.data <- read_csv( "data_processed/leaf_wp_wc/radar_wp_wc_12_2023.csv")
 radar_wp_wc_02_2024.data <- read_csv( "data_processed/leaf_wp_wc/radar_wp_wc_02_2024.csv")
+radar_wp_wc_05_2024.data <- read_csv( "data_processed/leaf_wp_wc/radar_wp_wc_05_2024.csv")
 
-## 05_2023,  07_2023 and 10_2023
 
-wp_wc_052023_072023_102023_122023_022024.data <- bind_rows(
+wp_wc_052023_072023_102023_122023_022024_052024.data <- bind_rows(
   radar_wp_wc_05_2023.data, 
   radar_wp_wc_07_2023.data, 
   radar_wp_wc_10_2023.data,
   radar_wp_wc_12_2023.data,
-  radar_wp_wc_02_2024.data
+  radar_wp_wc_02_2024.data,
+  radar_wp_wc_05_2024.data
   )
 
-names(wp_wc_052023_072023_102023_122023_022024.data)
-head(wp_wc_052023_072023_102023_122023_022024.data)
+names(wp_wc_052023_072023_102023_122023_022024_052024.data)
+head(wp_wc_052023_072023_102023_122023_022024_052024.data)
 
-write_csv(wp_wc_052023_072023_102023_122023_022024.data, file = "data_processed/leaf_wp_wc/complete_datasets/radar_wp_wc_05_2023_02_2024.csv")
+write_csv(wp_wc_052023_072023_102023_122023_022024_052024.data, file = "data_processed/leaf_wp_wc/complete_datasets/radar_wp_wc_05_2023_05_2024.csv")
 
-# to general
+# # to general
 
-write_csv(wp_wc_052023_072023_102023_122023_022024.data, paste0(root.dir, "data_processed/leaf_water_potential_water_content/complete_datasets/radar_wp_wc_05_2023_02_2024.csv"))
+# write_csv(wp_wc_052023_072023_102023_122023_022024_052024.data, paste0(root.dir, "data_processed/leaf_water_potential_water_content/complete_datasets/radar_wp_wc_05_2023_05_2024.csv"))
 

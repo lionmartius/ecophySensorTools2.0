@@ -1,6 +1,7 @@
 #### INITIALIZATION SENSOR DATA PROCESSING #####################################
 
-## Pablo Sanchez Martinez
+## Origin: Pablo Sanchez Martinez
+## Modified by: Lion R. Martius
 ## 05/2023
 
 remove(list = ls())
@@ -8,8 +9,7 @@ remove(list = ls())
 
 #### CREATE DIRECTIORES -------------------------------------------------------- ####
 
-# root.dir <- c("C://Users//pablo//OneDrive - University of Edinburgh//postdoc_UoE//")
-root.dir <- c("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/")
+root.dir <- c("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/")
 
 dir.create("scripts/", showWarnings = F)
 dir.create("scripts/functions", showWarnings = F)
@@ -58,7 +58,7 @@ library(ggplot2)
 library(ggpubr)
 library(lubridate)
 library(hms)
-library(TrEvol)
+# library(TrEvol)
 library(lme4)
 library(lmerTest)
 library(MuMIn)
@@ -79,41 +79,41 @@ color_tfe <- "#d95f02ff"
 
 #### MET AND SOIL VARIABLES NAMES ---------------------------------------------- ####
 
-met_variables.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
+met_variables.names <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
                                           sheet = "Torre PA") %>%
   select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
   na.omit()
 
-tfe_met_variables.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
+tfe_met_variables.names <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
                                           sheet = "Torre PB") %>%
   mutate(abbreviation_raw = tolower(abbreviation_raw)) %>%
   select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
   na.omit()
 
-soil_control_variables.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
-                                                   sheet = "Solo 02 PA") %>%
-  select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
-  na.omit() %>%
-  mutate(abbreviation_raw = tolower(abbreviation_raw),
-         abbreviation_processing  = tolower(abbreviation_processing),
-         abbreviation_processed = tolower(abbreviation_processed))
+# soil_control_variables.names <- readxl::read_excel("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
+#                                                    sheet = "Solo 02 PA") %>%
+#   select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
+#   na.omit() %>%
+#   mutate(abbreviation_raw = tolower(abbreviation_raw),
+#          abbreviation_processing  = tolower(abbreviation_processing),
+#          abbreviation_processed = tolower(abbreviation_processed))
 
-soil_control_variables_2024.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
-                                                   sheet = "solo 2024 PA") %>%
-  select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
-  na.omit() %>%
-  mutate(abbreviation_raw = tolower(abbreviation_raw),
-         abbreviation_processing  = tolower(abbreviation_processing),
-         abbreviation_processed = tolower(abbreviation_processed))
+# soil_control_variables_2024.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
+#                                                    sheet = "solo 2024 PA") %>%
+#   select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
+#   na.omit() %>%
+#   mutate(abbreviation_raw = tolower(abbreviation_raw),
+#          abbreviation_processing  = tolower(abbreviation_processing),
+#          abbreviation_processed = tolower(abbreviation_processed))
 
-soil_tfe_variables.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
-                                               sheet = "Solo PB") %>%
-  select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
-  na.omit() %>%
-  mutate(abbreviation_raw = tolower(abbreviation_raw),
-         abbreviation_processing  = tolower(abbreviation_processing),
-         abbreviation_processed = tolower(abbreviation_processed))
+# soil_tfe_variables.names <- readxl::read_excel("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data/caxuana_meteo/caxiuana_variables_abbreviation.xlsx",
+#                                                sheet = "Solo PB") %>%
+#   select(abbreviation_raw, abbreviation_processing, abbreviation_processed) %>%
+#   na.omit() %>%
+#   mutate(abbreviation_raw = tolower(abbreviation_raw),
+#          abbreviation_processing  = tolower(abbreviation_processing),
+#          abbreviation_processed = tolower(abbreviation_processed))
 
 ### radar trees metadata ####
 
-metadata <- readxl::read_excel(paste0("C:/Users/psanche2/OneDrive - University of Edinburgh/postdoc_UoE/data_processed/metadata_cax_radar/cax_radar_metadata_caxiuana_10_2023.xlsx"), sheet = 1)
+metadata <- readxl::read_excel(paste0("C:/Users/s2448250/OneDrive - University of Edinburgh/PhD/data/cax_metadata/cax_radar_metadata_caxiuana_10_2023.xlsx"), sheet = 1)
